@@ -1,0 +1,122 @@
+/* ---------- Root Colors (same as style.css) ---------- */
+:root {
+  --blue: #1f6feb;
+  --muted: #6b7280;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+}
+
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #0f172a;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: linear-gradient(90deg, var(--blue), #2b7fff);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+}
+
+/* ---------- Logs Container ---------- */
+.logs-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 36, 0.05);
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.controls button {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.controls button:hover {
+  background: #2563eb;
+}
+
+/* ---------- Table ---------- */
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.logs-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #374151;
+}
+
+.logs-table tr:hover {
+  background: #f9fafb;
+}
+
+/* ---------- Log Type Colors ---------- */
+td.info {
+  color: var(--success);
+  font-weight: 600;
+}
+
+td.warning {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+td.error {
+  color: var(--danger);
+  font-weight: 600;
+}

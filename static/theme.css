@@ -1,0 +1,138 @@
+/* =========================================================
+   THEME OVERRIDES — LIGHT & DARK (Soft Grey cards for dark)
+   Non-destructive: only color overrides & small chart canvas fixes.
+   ========================================================= */
+
+/* -------- LIGHT MODE (default / preserves your style.css) -------- */
+:root{
+  --ti-bg: #f4f7fb;         /* page background (matches your style.css var) */
+  --ti-text: #0f1724;       /* main text */
+  --ti-nav-bg: #1f6feb;     /* nav (blue) */
+  --ti-card: #ffffff;       /* cards */
+  --ti-ml-summary: #eef2ff; /* ml summary (light) */
+  --ti-chart-bg: #ffffff;   /* chart card canvas */
+  --ti-muted: #6b7280;
+  --ti-accent: #1f6feb;
+  --ti-success: #16a34a;
+  --ti-warning: #f59e0b;
+  --ti-danger: #dc2626;
+}
+
+/* -------- DARK MODE OVERRIDES (applied when <html class="dark">) --------
+   Option 2: Soft grey cards (#1a1f2b)
+   This replaces colors ONLY when html has class "dark".
+   --------------------------------------------------------------------- */
+html.dark {
+  --ti-bg: #0d1117;        /* page background */
+  --ti-text: #e6eef8;      /* primary text on dark */
+  --ti-nav-bg: #161b22;    /* navbar dark */
+  --ti-card: #1a1f2b;      /* soft dark cards */
+  --ti-ml-summary: #1a1f2b;/* ML summary same as card */
+  --ti-chart-bg: #171a20;  /* dark canvas */
+  --ti-muted: #9aa6b2;     /* muted text color for subtitles */
+  --ti-accent: #58a6ff;    /* accent / active nav */
+  --ti-success: #16a34a;
+  --ti-warning: #f59e0b;
+  --ti-danger: #ff6b6b;
+}
+
+/* ========================= APPLY OVERRIDES ========================= */
+
+/* Page base */
+html, body {
+  background: var(--ti-bg) !important;
+  color: var(--ti-text) !important;
+}
+
+/* NAVBAR */
+.navbar {
+  background: var(--ti-nav-bg) !important;
+}
+
+/* Navbar links — keep them visible both modes, active uses accent */
+.navbar a { color: white !important; }
+html.dark .navbar a { color: var(--ti-text) !important; }
+.navbar a.active {
+  background: var(--ti-accent) !important;
+  color: white !important;
+}
+
+/* TOPBAR (heading text) */
+.topbar, .topbar h1 { color: var(--ti-text) !important; }
+
+/* CARDS AND BOXES: metrics, charts, controls, ml-cards, alerts */
+.card,
+.chart-card,
+.chart-box,
+.ml-card,
+.controls,
+.controls-logs,
+.ml-insights,
+.ml-summary,
+.alert-container .alert,
+.alert {
+  background: var(--ti-card) !important;
+  color: var(--ti-text) !important;
+  /* keep original box-shadow from style.css if present; optionally you can lighten it below */
+}
+
+/* ML SUMMARY (special left-border styling kept via inline / style.css but colorized here) */
+.ml-summary {
+  background: var(--ti-ml-summary) !important;
+  color: var(--ti-text) !important;
+  border-left: 5px solid var(--ti-accent) !important;
+}
+
+/* ML titles & values */
+.ml-title { color: var(--ti-muted) !important; }
+.ml-value { color: var(--ti-text) !important; }
+
+/* Status colors: map to variables so they look correct in dark */
+#machineStatus.running { color: var(--ti-success) !important; }
+#machineStatus.idle    { color: var(--ti-muted) !important; }
+#machineStatus.overheated { color: var(--ti-danger) !important; }
+
+/* ML status helper classes (preserve semantics) */
+.ml-ok  { color: var(--ti-success) !important; }
+.ml-warn { color: var(--ti-warning) !important; }
+.ml-bad { color: var(--ti-danger) !important; }
+
+/* Alerts */
+.alert { background: var(--ti-card) !important; color: var(--ti-text) !important; }
+
+/* Controls / Buttons (ensure contrast) */
+.controls button, button {
+  color: white !important;
+}
+
+/* Canvas / Chart container background */
+canvas, .chart-card canvas, .chart-box canvas {
+  background: var(--ti-chart-bg) !important;
+}
+
+/* In case some canvas wrapper exists */
+.chart-card, .chart-box {
+  background: var(--ti-chart-bg) !important;
+}
+
+/* Links and small accents */
+a, .card a { color: var(--ti-accent) !important; }
+
+/* Subtle fix: if your CSS set strong light shadows, reduce them in dark mode for clarity */
+html.dark .card, html.dark .chart-card, html.dark .ml-card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45) !important;
+}
+
+/* Chart.js-specific (visual helpers only): */
+html.dark .chartjs-render-monitor {
+  /* brightness adjust to make chart elements slightly less harsh */
+  filter: brightness(0.95) !important;
+}
+
+/* If Chart.js labels/legend/tooltips need color — we'll patch via JS (recommended).
+   This CSS is a fallback to ensure nothing shows pure white backgrounds. */
+
+/* Keep responsiveness and other styles intact */
+@media (max-width: 900px) {
+  /* no change here — preserve your layout */
+}

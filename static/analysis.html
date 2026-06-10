@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analysis & Reports - Industrial Dashboard</title>
+  <link rel="stylesheet" href="analysis.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="analysis.html" class="active">📊 Analysis</a>
+    <a href="logs.html">📋 Logs</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <h1>Performance Analysis & Reports</h1>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <!-- Summary Cards -->
+    <section class="cards">
+      <div class="card">
+        <div class="card-title">Average Efficiency</div>
+        <div id="avgEfficiency" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Peak Power</div>
+        <div id="peakPower" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Machine Uptime</div>
+        <div id="runtimePercent" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Idle Percent</div>
+        <div id="idlePercent" class="card-value">--</div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts">
+      <div class="chart-box">
+        <h3>Temperature Trends</h3>
+        <canvas id="tempChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>Power Usage</h3>
+        <canvas id="powerChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>Efficiency Trends</h3>
+        <canvas id="effChart"></canvas>
+      </div>
+    </section>
+
+    <!-- ========== ML ANALYTICS (REPLACES SIMPLE ML CARDS) ========== -->
+    <section class="ml-analytics-section">
+      <h2 class="section-heading"> ML Analytics & Trends</h2>
+
+      <div class="ml-controls">
+        <button id="exportMlPdfBtn" class="report-btn">📤 Export ML Insights to PDF</button>
+        <div class="ml-note">(Shows last <span id="mlHistoryCount">0</span> ML samples)</div>
+      </div>
+
+      <div class="ml-charts">
+        <div class="ml-chart-box">
+          <h4>Predicted vs Real — Efficiency (%)</h4>
+          <canvas id="mlPredVsRealChart"></canvas>
+        </div>
+
+        <div class="ml-chart-box">
+          <h4>Anomaly Timeline</h4>
+          <canvas id="mlAnomalyChart"></canvas>
+        </div>
+
+        <div class="ml-chart-box">
+          <h4>Optimization History (Power kW)</h4>
+          <canvas id="mlOptChart"></canvas>
+        </div>
+
+        <div class="ml-chart-box">
+          <h4>ML Confidence / Probabilities</h4>
+          <canvas id="mlConfidenceChart"></canvas>
+        </div>
+      </div>
+
+      <div id="mlTextSummary" class="ml-summary-extended">
+        Loading ML analysis summary...
+      </div>
+    </section>
+    <!-- ========== END ML ANALYTICS ========== -->
+
+    <!-- Report Section -->
+    <section id="reportSection" class="report-section">
+      <h2>📄 Generate Performance Report</h2>
+      <p>
+        Generate a complete PDF report summarizing temperature, power usage, and efficiency trends.
+      </p>
+      <button id="generateReportBtn" class="report-btn">🧾 Generate Report</button>
+      <div id="reportStatus" class="status-msg">Updated at --:--:--</div>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script src="analysis.js"></script>
+</body>
+</html>

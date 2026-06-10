@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Automation Dashboard</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <div class="register-container">
+    <!-- LEFT BLUE PANEL -->
+    <div class="register-left">
+      <div class="logo-area">
+        <h1>AUTOMATION<br>DASHBOARD</h1>
+        <p class="tagline">“Data-driven intelligence for tomorrow’s industry.”</p>
+        <img src="login_logo.png" alt="Automation Dashboard Graphic" class="side-img" />
+      </div>
+      <a href="home.html" class="home-btn">HOME</a>
+    </div>
+
+    <!-- RIGHT WHITE PANEL -->
+    <div class="register-right">
+      <h2 class="form-title">REGISTER</h2>
+
+      <form class="register-form" id="registerForm">
+        <div class="input-group">
+          <label for="fullname">FULL NAME</label>
+          <input type="text" id="fullname" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="input-group">
+          <label for="email">EMAIL</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group password-group">
+          <label for="password">PASSWORD</label>
+          <input type="password" id="password" placeholder="Create a password" required />
+          <span id="togglePassword" class="toggle-icon">👁️</span>
+        </div>
+
+        <div class="input-group">
+          <label for="confirmPassword">CONFIRM PASSWORD</label>
+          <input type="password" id="confirmPassword" placeholder="Re-enter your password" required />
+        </div>
+
+        <div class="btn-row">
+          <a href="login.html" class="btn outline">SIGN IN</a>
+          <button type="submit" class="btn primary">REGISTER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Machine Logs - Industrial Automation Dashboard</title>
+  <link rel="stylesheet" href="logs.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Machine Logs</h1>
+    <nav class="nav-links">
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="analysis.html">📊 Analysis</a>
+      <a href="logs.html">🧾 Logs</a>
+    </nav>
+  </header>
+
+  <main class="logs-container">
+    <div class="controls">
+      <input type="text" id="searchLog" placeholder="Search logs..." />
+      <select id="filterType">
+        <option value="ALL">All</option>
+        <option value="INFO">Info</option>
+        <option value="WARNING">Warning</option>
+        <option value="ERROR">Error</option>
+      </select>
+      <button id="refreshLogs">🔄 Refresh</button>
+      <button id="exportLogs">⬇️ Export CSV</button>
+      <button id="clearLogs">🗑 Clear Logs</button>
+    </div>
+
+    <table class="logs-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Type</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody id="logsTableBody">
+        <!-- Logs will be injected dynamically -->
+      </tbody>
+    </table>
+  </main>
+
+  <script src="logs.js"></script>
+</body>
+</html>

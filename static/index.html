@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Industrial Automation Dashboard - Live Monitoring</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- ----------- NAVIGATION BAR ----------- -->
+  <nav class="navbar">
+    <a href="index.html">🏠 Dashboard</a>
+    <a href="analysis.html">📊 Analysis</a>
+    <a href="logs.html" class="active">🧾 Logs</a>
+  </nav>
+
+  <header class="topbar">
+    <h1>Industrial Automation Dashboard</h1>
+    <div id="connection" class="status offline">Disconnected</div>
+  </header>
+
+  <main class="container">
+
+    <!-- ----------- METRIC CARDS ----------- -->
+    <section class="cards">
+      <div class="card">
+        <div class="card-title">Machine Status</div>
+        <div id="machineStatus" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Temperature (°C)</div>
+        <div id="temperature" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Power Usage (W)</div>
+        <div id="powerUsage" class="card-value">--</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Efficiency (%)</div>
+        <div id="efficiency" class="card-value">--</div>
+      </div>
+    </section>
+
+    <!-- ----------- CHARTS SECTION ----------- -->
+    <section class="charts">
+      <div class="chart-card">
+        <div class="chart-title">Temperature — Live Trend</div>
+        <canvas id="tempChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">Power Usage — Live Trend</div>
+        <canvas id="powerChart"></canvas>
+      </div>
+    </section>
+
+    <!-- ========== ⭐ ML INSIGHTS SECTION ⭐ ========== -->
+    <section class="ml-insights">
+
+      <h2 class="section-heading"> ML Insights</h2>
+
+      <!-- Summary Box -->
+      <div class="ml-summary" id="mlSummary">Fetching AI insights...</div>
+
+      <div class="ml-grid">
+
+        <div class="ml-card">
+          <div class="ml-title">Predicted Efficiency (%)</div>
+          <div id="mlPredEff" class="ml-value">--</div>
+        </div>
+
+        <div class="ml-card">
+          <div class="ml-title">Predicted Power (kW)</div>
+          <div id="mlPredPower" class="ml-value">--</div>
+        </div>
+
+        <div class="ml-card">
+          <div class="ml-title">Overheat Risk</div>
+          <div id="mlOverheat" class="ml-value">--</div>
+        </div>
+
+        <div class="ml-card">
+          <div class="ml-title">Maintenance Required</div>
+          <div id="mlMaintenance" class="ml-value">--</div>
+        </div>
+
+        <div class="ml-card">
+          <div class="ml-title">Anomaly Status</div>
+          <div id="mlAnomaly" class="ml-value">--</div>
+        </div>
+
+        <div class="ml-card">
+          <div class="ml-title">Optimization Suggestion</div>
+          <div id="mlOptimize" class="ml-value small-text">--</div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ========== END ML SECTION ========== -->
+
+    <!-- ----------- CONTROLS SECTION ----------- -->
+    <section class="controls-logs">
+      <div class="controls">
+        <button id="startBtn">▶️ Start </button>
+        <button id="stopBtn">⏸ Stop </button>
+        <button id="resetBtn">🔁 Reset Graphs</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ----------- ALERT POPUP CONTAINER ----------- -->
+  <div id="alertContainer" class="alert-container"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

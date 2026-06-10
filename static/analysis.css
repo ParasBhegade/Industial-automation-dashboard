@@ -1,0 +1,280 @@
+/* === GLOBAL === */
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: #f4f7fb;
+  color: #333;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: #1a73e8;
+  padding: 0.8rem 1rem;
+  text-align: right;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 1rem;
+  transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.navbar a.active {
+  font-weight: 600;
+  text-decoration: none ;
+}
+
+/* === HEADER === */
+.topbar {
+  text-align: center;
+  padding: 1.2rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h1 {
+  margin: 0;
+  color: #1a73e8;
+  font-size: 1.8rem;
+}
+
+/* === MAIN CONTAINER === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* === SUMMARY CARDS === */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a73e8;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* === CHARTS === */
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.chart-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.chart-box h3 {
+  margin-bottom: 10px;
+  color: #1a73e8;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.charts canvas {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  height: 280px;
+}
+
+/* === REPORT SECTION === */
+.report-section {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.report-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.report-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #1a73e8;
+}
+
+.report-section p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* === REPORT BUTTON === */
+#generateReportBtn,
+.report-btn {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#generateReportBtn:hover,
+.report-btn:hover {
+  background: #1669c1;
+  transform: translateY(-2px);
+}
+
+/* === STATUS MESSAGE === */
+.status-msg {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .charts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .charts canvas {
+    height: 240px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar h1 {
+    font-size: 1.4rem;
+  }
+
+  .report-section {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================================
+   ML ANALYTICS STYLES
+   ============================================================ */
+
+.ml-analytics-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.ml-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ml-note {
+  color: #666;
+  font-weight: 600;
+}
+
+.ml-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.ml-chart-box {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.ml-chart-box h4 {
+  margin: 0 0 8px 0;
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+.ml-summary-extended {
+  background: #f0f7ff;
+  border-left: 5px solid #1a73e8;
+  padding: 12px;
+  border-radius: 8px;
+  color: #0f3b78;
+  font-weight: 600;
+}
+
+/* small helpers */
+.ml-small {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+  .ml-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
