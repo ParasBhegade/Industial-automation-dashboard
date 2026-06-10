@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Database (optional if generated locally)
+# machine_data.db
+
+# Generated reports
+Machine_Report_*.pdf
+
+# Generated CSV exports
+machine_data_*.csv
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
